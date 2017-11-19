@@ -16,6 +16,8 @@ return [
 	'projects:tasks:none' => 'No tasks',
 	'projects:task:assignees' => 'Assignees',
 	'projects:group:enable' => 'Enable group projects',
+	'projects:task:mark_complete' => 'Mark complete',
+	'projects:task:action:completed' => 'Task marked as completed',
 	'projects:' => '',
 	'projects:' => '',
 	'projects:' => '',

@@ -72,4 +72,24 @@ class Task extends ElggObject {
 			'relationship' => 'assigned_to',
 		]);
 	}
+
+	/**
+	 * Mark this task as completed.
+	 *
+	 * Will change the status of the task and save the completion date.
+	 */
+	public function markCompleted() {
+		$this->status = 'completed';
+		$this->date_completed = time();
+	}
+
+	/**
+	 * Is this task completed?
+	 *
+	 * @return boolean
+	 */
+	public function isCompleted() {
+		return $this->status == 'completed';
+	}
+
 }

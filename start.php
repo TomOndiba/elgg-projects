@@ -11,6 +11,7 @@ function projects_init() {
 
 	elgg_register_action('project/save', __DIR__ . '/actions/project/save.php');
 	elgg_register_action('task/save', __DIR__ . '/actions/task/save.php');
+	elgg_register_action('task/complete', __DIR__ . '/actions/task/complete.php');
 
 	elgg_register_plugin_hook_handler('register', 'menu:owner_block', '\Elgg\Projects\OwnerBlockMenu::register');
 
