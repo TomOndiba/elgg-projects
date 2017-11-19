@@ -7,6 +7,8 @@ use ElggObject;
 class Task extends ElggObject {
 	const SUBTYPE = 'task';
 
+	const ASSIGNED_TO = 'assigned_to';
+
 	/**
 	 * {@inheritdoc}
 	 */

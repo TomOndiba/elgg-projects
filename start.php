@@ -17,6 +17,8 @@ function projects_init() {
 	elgg_register_plugin_hook_handler('permissions_check', 'object', '\Elgg\Projects\WritePermissionCheck::process');
 
 	add_group_tool_option('projects', elgg_echo('projects:group:enable'));
+
+	elgg_register_widget_type('task', elgg_echo('projects:tasks'), elgg_echo('task:widget:description'));
 }
 
 /**

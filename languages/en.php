@@ -13,6 +13,7 @@ return [
 	'projects:project' => 'Projects',
 	'project:add' => 'Add new project',
 	'projects:task' => 'Task',
+	'projects:tasks' => 'Tasks',
 	'projects:tasks:none' => 'No tasks',
 	'projects:task:assignees' => 'Assignees',
 	'projects:group:enable' => 'Enable group projects',
@@ -23,6 +24,9 @@ return [
 	'projects:label:date_end' => 'End date: %s',
 	'projects:label:date_completed' => 'Completion date: %s',
 	'projects:date:format' => 'Y-m-d',
+	'task:widget:description' => 'Display tasks assigned to you.',
+	'projects:widget:task:numbertodisplay' => 'Amount of tasks',
+	'projects:' => '',
 	'projects:' => '',
 	'projects:' => '',
 ];
