@@ -26,6 +26,13 @@ $entity_view = elgg_view_entity($entity, [
 	'full_view' => true,
 ]);
 
+$percentage = $entity->getCompetionPercentage();
+$completion = <<<HTML
+	<div class="elgg-progressbar mvl" style="border: 1px solid grey">
+		<span style="background: green; display: block; width: {$percentage}%">{$percentage}%</span>
+	</div>
+HTML;
+
 $tasks = elgg_list_entities([
 	'type' => 'object',
 	'subtype' => Task::SUBTYPE,
@@ -38,7 +45,7 @@ $comments = elgg_view_comments($entity);
 $body = elgg_view_layout('content', [
 	'title' => $entity->title,
 	'filter' => '',
-	'content' => $entity_view . $tasks . $comments,
+	'content' => $entity_view . $completion . $tasks . $comments,
 ]);
 
 echo elgg_view_page($title, $body);

@@ -40,4 +40,41 @@ class Project extends ElggObject {
 	public function getURL() {
 		return "project/view/{$this->guid}";
 	}
+
+	/**
+	 * Get completion percentage.
+	 *
+	 * @return int
+	 */
+	public function getCompetionPercentage() {
+		$total_count = elgg_get_entities([
+			'type' => 'object',
+			'subtype' => Task::SUBTYPE,
+			'container_guid' => $this->guid,
+			'limit' => false,
+			'count' => true,
+		]);
+
+
+		if ($total_count == 0) {
+			return 0;
+		}
+
+		$finished_count = elgg_get_entities_from_metadata([
+			'type' => 'object',
+			'subtype' => Task::SUBTYPE,
+			'container_guid' => $this->guid,
+			'limit' => false,
+			'count' => true,
+			'metadata_name_value_pairs' => [
+				[
+					'name' => 'status',
+					'value' => 'completed',
+					'operator' => '!=',
+				]
+			]
+		]);
+
+		return round($finished_count / $total_count * 100);
+	}
 }
