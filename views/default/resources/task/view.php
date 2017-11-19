@@ -14,6 +14,7 @@ if (!$entity->isCompleted()) {
 		'name' => 'task_compete',
 		'text' => elgg_echo('projects:task:mark_complete'),
 		'href' => "action/task/complete?guid={$guid}",
+		'confirm' => true,
 		'is_action' => true,
 		'link_class' => 'elgg-button elgg-button-action',
 	]);
