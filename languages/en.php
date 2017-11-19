@@ -14,6 +14,7 @@ return [
 	'project:add' => 'Add new project',
 	'projects:task' => 'Task',
 	'projects:tasks:none' => 'No tasks',
+	'projects:task:assignees' => 'Assignees',
 	'projects:' => '',
 	'projects:' => '',
 	'projects:' => '',

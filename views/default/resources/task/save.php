@@ -16,6 +16,9 @@ if ($entity instanceof Task) {
 	}
 
 	$form_vars['container_guid'] = $entity->container_guid;
+	$form_vars['assignees'] = array_map(function($assignee) {
+		return $assignee->guid;
+	}, $entity->getAssignees());
 
 	$title = elgg_echo("projects:task:edit");
 } else {

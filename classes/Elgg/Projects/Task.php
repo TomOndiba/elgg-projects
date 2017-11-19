@@ -40,4 +40,36 @@ class Task extends ElggObject {
 	public function getURL() {
 		return "task/view/{$this->guid}";
 	}
+
+	/**
+	 * Set assignees for this task.
+	 *
+	 * Users missing from the input array will be unassigned.
+	 *
+	 * @param array $user_guids
+	 */
+	public function setAssignees($user_guids) {
+		$existing = $this->getAssignees();
+
+		foreach ($existing as $user) {
+			if (!in_array($user->guid, $user_guids)) {
+				$this->removeRelationship($user->guid, 'assigned_to');
+			}
+		}
+
+		foreach ($user_guids as $user_guid) {
+			$this->addRelationship($user_guid, 'assigned_to');
+		}
+	}
+
+	/**
+	 * Get all users assigned to this task.
+	 *
+	 * @return ElggUser[]
+	 */
+	public function getAssignees() {
+		return $this->getEntitiesFromRelationship([
+			'relationship' => 'assigned_to',
+		]);
+	}
 }

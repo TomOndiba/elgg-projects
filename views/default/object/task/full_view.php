@@ -31,14 +31,13 @@ $summary = elgg_view('object/elements/summary', $params);
 
 $body .= $entity->date_start;
 
+$assignees = $entity->getEntitiesFromRelationship(['relationship' => 'assigned_to']);
+
+$body .= elgg_view_entity_list($assignees);
+
 echo elgg_view('object/elements/full', [
 	'entity' => $entity,
 	'summary' => $summary,
 	'body' => $body,
 	'icon' => '',
 ]);
-
-
-
-
-

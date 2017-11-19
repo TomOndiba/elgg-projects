@@ -20,6 +20,11 @@ $fields = [
 		'#label' => elgg_echo('description'),
 	],
 	[
+		'name' => 'assignees',
+		'#type' => 'userpicker',
+		'#label' => elgg_echo('projects:task:assignees'),
+	],
+	[
 		'name' => 'access_id',
 		'#type' => 'access',
 		'#label' => elgg_echo('projects:access'),

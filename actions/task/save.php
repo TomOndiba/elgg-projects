@@ -5,9 +5,9 @@ namespace Elgg\Projects;
 $guid = get_input('guid');
 
 if ($guid) {
-	$project = get_entity($guid);
+	$task = get_entity($guid);
 } else {
-	$project = new Task;
+	$task = new Task;
 }
 
 $fields = Task::getProperties();
@@ -19,9 +19,11 @@ foreach ($fields as $name => $type) {
 		$value = string_to_tag_array($value);
 	}
 
-	$project->$name = $value;
+	$task->$name = $value;
 }
 
-$project->save();
+$task->save();
 
-return elgg_ok_response('', elgg_echo('saved'), $project->getURL());
+$task->setAssignees(get_input('assignees'));
+
+return elgg_ok_response('', elgg_echo('saved'), $task->getURL());
