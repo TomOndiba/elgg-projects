@@ -8,19 +8,21 @@ $guid = elgg_extract('guid', $vars);
 
 $entity = get_entity($guid);
 
-elgg_register_menu_item('title', [
-	'name' => 'project_edit',
-	'text' => elgg_echo('edit'),
-	'href' => "project/edit/$guid",
-	'link_class' => 'elgg-button elgg-button-action',
-]);
+if ($entity->canEdit()) {
+	elgg_register_menu_item('title', [
+		'name' => 'project_edit',
+		'text' => elgg_echo('edit'),
+		'href' => "project/edit/$guid",
+		'link_class' => 'elgg-button elgg-button-action',
+	]);
 
-elgg_register_menu_item('title', [
-	'name' => 'task_add',
-	'text' => elgg_echo('projects:task:add'),
-	'href' => "task/add/$guid",
-	'link_class' => 'elgg-button elgg-button-action',
-]);
+	elgg_register_menu_item('title', [
+		'name' => 'task_add',
+		'text' => elgg_echo('projects:task:add'),
+		'href' => "task/add/$guid",
+		'link_class' => 'elgg-button elgg-button-action',
+	]);
+}
 
 $entity_view = elgg_view_entity($entity, [
 	'full_view' => true,

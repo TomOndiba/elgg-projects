@@ -11,6 +11,11 @@ elgg_push_breadcrumb($container->getDisplayName(), $container->getURL());
 
 $form_vars = [];
 if ($entity instanceof Task) {
+	if (!$entity->canEdit()) {
+		register_error(elgg_echo('actionunauthorized'));
+		forward(REFERER);
+	}
+
 	foreach (Task::getProperties() as $name => $type) {
 		$form_vars[$name] = $entity->$name;
 	}

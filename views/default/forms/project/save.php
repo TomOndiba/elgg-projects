@@ -25,7 +25,7 @@ $fields = [
 		'#label' => elgg_echo('projects:access'),
 	],
 	[
-		'name' => 'write_access',
+		'name' => 'write_access_id',
 		'#type' => 'access',
 		'#label' => elgg_echo('projects:write_access'),
 	],

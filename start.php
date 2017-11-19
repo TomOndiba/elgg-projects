@@ -14,6 +14,7 @@ function projects_init() {
 	elgg_register_action('task/complete', __DIR__ . '/actions/task/complete.php');
 
 	elgg_register_plugin_hook_handler('register', 'menu:owner_block', '\Elgg\Projects\OwnerBlockMenu::register');
+	elgg_register_plugin_hook_handler('permissions_check', 'object', '\Elgg\Projects\WritePermissionCheck::process');
 
 	add_group_tool_option('projects', elgg_echo('projects:group:enable'));
 }

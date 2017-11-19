@@ -8,6 +8,11 @@ $entity = get_entity($guid);
 
 $form_vars = [];
 if ($entity instanceof Project) {
+	if (!$entity->canEdit()) {
+		register_error(elgg_echo('actionunauthorized'));
+		forward(REFERER);
+	}
+
 	foreach (Project::getProperties() as $name => $type) {
 		$form_vars[$name] = $entity->$name;
 	}
