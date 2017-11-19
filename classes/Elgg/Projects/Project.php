@@ -45,7 +45,7 @@ class Project extends ElggObject {
 	 *
 	 * @return int
 	 */
-	public function getCompetionPercentage() {
+	public function getCompletionPercentage() {
 		$total_count = elgg_get_entities([
 			'type' => 'object',
 			'subtype' => Task::SUBTYPE,

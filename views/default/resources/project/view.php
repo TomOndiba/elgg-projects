@@ -28,7 +28,7 @@ $entity_view = elgg_view_entity($entity, [
 
 $dates = elgg_view('object/project/dates', ['entity' => $entity]);
 
-$percentage = $entity->getCompetionPercentage();
+$percentage = $entity->getCompletionPercentage();
 $completion = <<<HTML
 	<div class="elgg-progressbar mvl" style="border: 1px solid grey">
 		<span style="background: green; display: block; width: {$percentage}%">{$percentage}%</span>
