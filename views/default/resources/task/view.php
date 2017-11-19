@@ -2,7 +2,7 @@
 
 $title = elgg_echo('projects:task');
 
-$guid = $vars[1];
+$guid = elgg_extract('guid', $vars);
 
 $entity = get_entity($guid);
 $container = $entity->getContainerEntity();

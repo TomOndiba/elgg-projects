@@ -17,6 +17,8 @@ return [
 	'projects:tasks:none' => 'No tasks',
 	'projects:task:assignees' => 'Assignees',
 	'projects:group:enable' => 'Enable group projects',
+	'projects:task:title:owner' => 'Tasks created by %s',
+	'projects:task:title:assigned' => 'Tasks assigned to %s',
 	'projects:task:mark_complete' => 'Mark complete',
 	'projects:task:action:completed' => 'Task marked as completed',
 	'projects:task:message:reopened' => 'The task was reopened',

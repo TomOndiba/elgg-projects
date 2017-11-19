@@ -2,12 +2,9 @@
 
 namespace Elgg\Projects;
 
-$guid = $vars[1];
+$guid = elgg_extract('guid', $vars);
 
 $entity = get_entity($guid);
-$container = $entity->getContainerEntity();
-
-elgg_push_breadcrumb($container->getDisplayName(), $container->getURL());
 
 $form_vars = [];
 if ($entity instanceof Task) {
@@ -26,11 +23,17 @@ if ($entity instanceof Task) {
 	}, $entity->getAssignees());
 
 	$title = elgg_echo("projects:task:edit");
+
+	$container = $entity->getContainerEntity();
 } else {
+	$container = $entity;
+
 	$form_vars['container_guid'] = $guid;
 
 	$title = elgg_echo("projects:task:add");
 }
+
+elgg_push_breadcrumb($container->getDisplayName(), $container->getURL());
 
 $form = elgg_view_form('task/save', $form_vars, $form_vars);
 

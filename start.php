@@ -64,11 +64,31 @@ function project_page_handler($page) {
  *
  */
 function task_page_handler($page) {
-	if (in_array($page[0], ['add', 'edit'])) {
-		$page[0] = 'save';
-	}
+	$page_type = elgg_extract(0, $page, 'all');
 
 	elgg_push_breadcrumb(elgg_echo('projects:project:all'), 'project/all');
 
-	echo elgg_view_resource("task/{$page[0]}", $page);
+	$identifier = elgg_extract(1, $page);
+
+	$vars = ['page_type' => $page_type];
+
+	switch ($page_type) {
+		case 'view':
+			$vars['guid'] = $identifier;
+			echo elgg_view_resource("task/view", $vars);
+			break;
+		case 'edit':
+		case 'add':
+			$vars['guid'] = $identifier;
+			echo elgg_view_resource("task/save", $vars);
+			break;
+		case 'owner':
+		case 'assigned':
+			$user = get_user_by_username($identifier);
+			$vars['guid'] = $user->guid;
+		default:
+			echo elgg_view_resource("task/list", $vars);
+			break;
+	}
+
 }

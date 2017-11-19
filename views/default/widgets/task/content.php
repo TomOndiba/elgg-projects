@@ -25,7 +25,7 @@ if (empty($content)) {
 echo $content;
 
 $more_link = elgg_view('output/url', [
-	'href' => 'tasks/owner/' . $widget->getOwnerEntity()->username,
+	'href' => 'task/assigned/' . $widget->getOwnerEntity()->username,
 	'text' => elgg_echo('more'),
 	'is_trusted' => true,
 ]);
