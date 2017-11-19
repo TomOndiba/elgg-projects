@@ -13,6 +13,8 @@ function projects_init() {
 	elgg_register_action('task/save', __DIR__ . '/actions/task/save.php');
 
 	elgg_register_plugin_hook_handler('register', 'menu:owner_block', '\Elgg\Projects\OwnerBlockMenu::register');
+
+	add_group_tool_option('projects', elgg_echo('projects:group:enable'));
 }
 
 /**

@@ -15,6 +15,7 @@ return [
 	'projects:task' => 'Task',
 	'projects:tasks:none' => 'No tasks',
 	'projects:task:assignees' => 'Assignees',
+	'projects:group:enable' => 'Enable group projects',
 	'projects:' => '',
 	'projects:' => '',
 	'projects:' => '',
