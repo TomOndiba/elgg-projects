@@ -33,10 +33,12 @@ $tasks = elgg_list_entities([
 	'no_results' => elgg_echo('projects:tasks:none'),
 ]);
 
+$comments = elgg_view_comments($entity);
+
 $body = elgg_view_layout('content', [
 	'title' => $entity->title,
 	'filter' => '',
-	'content' => $entity_view . $tasks,
+	'content' => $entity_view . $tasks . $comments,
 ]);
 
 echo elgg_view_page($title, $body);
