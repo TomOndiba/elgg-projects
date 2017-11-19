@@ -18,6 +18,7 @@ return [
 	'projects:group:enable' => 'Enable group projects',
 	'projects:task:mark_complete' => 'Mark complete',
 	'projects:task:action:completed' => 'Task marked as completed',
+	'projects:task:message:reopened' => 'The task was reopened',
 	'projects:' => '',
 	'projects:' => '',
 	'projects:' => '',

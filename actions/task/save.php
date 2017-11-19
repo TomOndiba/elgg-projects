@@ -22,6 +22,12 @@ foreach ($fields as $name => $type) {
 	$task->$name = $value;
 }
 
+if ($task->isCompleted()) {
+	system_message(elgg_echo('projects:task:message:reopened'));
+}
+
+$task->status = 'reopened';
+
 $task->save();
 
 $task->setAssignees(get_input('assignees'));
