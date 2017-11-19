@@ -19,7 +19,10 @@ return [
 	'projects:task:mark_complete' => 'Mark complete',
 	'projects:task:action:completed' => 'Task marked as completed',
 	'projects:task:message:reopened' => 'The task was reopened',
-	'projects:' => '',
+	'projects:label:date_start' => 'Start date: %s',
+	'projects:label:date_end' => 'End date: %s',
+	'projects:label:date_completed' => 'Completion date: %s',
+	'projects:date:format' => 'Y-m-d',
 	'projects:' => '',
 	'projects:' => '',
 ];

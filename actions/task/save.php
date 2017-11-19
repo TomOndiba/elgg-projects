@@ -24,9 +24,10 @@ foreach ($fields as $name => $type) {
 
 if ($task->isCompleted()) {
 	system_message(elgg_echo('projects:task:message:reopened'));
-}
 
-$task->status = 'reopened';
+	$task->date_completed = null;
+	$task->status = 'reopened';
+}
 
 $task->save();
 

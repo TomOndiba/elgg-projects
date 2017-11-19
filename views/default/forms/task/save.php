@@ -36,11 +36,13 @@ $fields = [
 	],
 	[
 		'name' => 'date_start',
+		'timestamp' => true,
 		'#type' => 'date',
 		'#label' => elgg_echo('projects:date_start'),
 	],
 	[
 		'name' => 'date_end',
+		'timestamp' => true,
 		'#type' => 'date',
 		'#label' => elgg_echo('projects:date_end'),
 	],

@@ -29,7 +29,6 @@ class Task extends ElggObject {
 			'write_access_id' => 'access',
 			'date_start' => 'date',
 			'date_end' => 'date',
-			'date_completed' => 'date',
 			'tags' => 'tags',
 		];
 	}

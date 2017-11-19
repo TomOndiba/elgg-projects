@@ -23,13 +23,15 @@ $entity_view = elgg_view_entity($entity, [
 	'full_view' => true,
 ]);
 
+$dates = elgg_view('object/project/dates', ['entity' => $entity]);
+
 $comments = elgg_view_comments($entity);
 
 $body = elgg_view_layout('content', [
 	'title' => $entity->title,
 	'filter' => '',
 	'summary' => $summary,
-	'content' => $entity_view . $comments,
+	'content' => $entity_view . $dates . $comments,
 ]);
 
 echo elgg_view_page($title, $body);
