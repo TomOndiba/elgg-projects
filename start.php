@@ -1,5 +1,8 @@
 <?php
 
+use Elgg\Projects\Project;
+use Elgg\Projects\Task;
+
 elgg_register_event_handler('init', 'system', 'projects_init');
 
 /**
@@ -10,11 +13,25 @@ function projects_init() {
 	elgg_register_page_handler('project', 'project_page_handler');
 
 	elgg_register_action('project/save', __DIR__ . '/actions/project/save.php');
+	elgg_register_action('project/subscribe', __DIR__ . '/actions/project/subscribe.php');
+	elgg_register_action('project/unsubscribe', __DIR__ . '/actions/project/unsubscribe.php');
+
 	elgg_register_action('task/save', __DIR__ . '/actions/task/save.php');
 	elgg_register_action('task/complete', __DIR__ . '/actions/task/complete.php');
 
 	elgg_register_plugin_hook_handler('register', 'menu:owner_block', '\Elgg\Projects\OwnerBlockMenu::register');
 	elgg_register_plugin_hook_handler('permissions_check', 'object', '\Elgg\Projects\WritePermissionCheck::process');
+
+	elgg_register_notification_event('object', Project::SUBTYPE, [
+		'create',
+	]);
+
+	elgg_register_notification_event('object', Task::SUBTYPE, [
+		'create',
+		'assign',
+		'close',
+		'reopen',
+	]);
 
 	add_group_tool_option('projects', elgg_echo('projects:group:enable'));
 

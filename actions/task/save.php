@@ -23,14 +23,13 @@ foreach ($fields as $name => $type) {
 }
 
 if ($task->isCompleted()) {
-	system_message(elgg_echo('projects:task:message:reopened'));
+	$task->reopen();
 
-	$task->date_completed = null;
-	$task->status = 'reopened';
+	system_message(elgg_echo('projects:task:message:reopened'));
 }
 
 $task->save();
 
-$task->setAssignees(get_input('assignees'));
+$assignees = $task->setAssignees(get_input('assignees'));
 
 return elgg_ok_response('', elgg_echo('saved'), $task->getURL());

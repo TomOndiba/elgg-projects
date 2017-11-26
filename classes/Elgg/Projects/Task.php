@@ -39,7 +39,7 @@ class Task extends ElggObject {
 	 *
 	 */
 	public function getURL() {
-		return "task/view/{$this->guid}";
+		return elgg_normalize_url("task/view/{$this->guid}");
 	}
 
 	/**
@@ -54,12 +54,46 @@ class Task extends ElggObject {
 
 		foreach ($existing as $user) {
 			if (!in_array($user->guid, $user_guids)) {
-				$this->removeRelationship($user->guid, 'assigned_to');
+				$this->removeRelationship($user->guid, self::ASSIGNED_TO);
 			}
 		}
 
+		// If no users are selected, the value of the tokeninput field
+		// will be an aray: [0 => ''].
+		if (empty(current($user_guids))) {
+			return;
+		}
+
+		$from = elgg_get_logged_in_user_entity();
 		foreach ($user_guids as $user_guid) {
-			$this->addRelationship($user_guid, 'assigned_to');
+			$this->addRelationship($user_guid, self::ASSIGNED_TO);
+
+			$user = get_user($user_guid);
+
+			$subject = elgg_echo(
+				'notification:assign:object:task:subject',
+				[
+					$from->getDisplayName(),
+					$this->getDisplayName(),
+				],
+				$user->language
+			);
+
+			$message = elgg_echo(
+				'notification:assign:object:task:body',
+				[
+					$from->getDisplayName(),
+					$this->getDisplayName(),
+					$this->getContainerEntity()->getDisplayName(),
+					$this->getURL()
+				],
+				$user->language
+			);
+
+			notify_user($user_guid, $from->guid, $subject, $message, [
+				'object' => $this,
+				'action' => 'assign',
+			]);
 		}
 	}
 
@@ -82,6 +116,8 @@ class Task extends ElggObject {
 	public function markCompleted() {
 		$this->status = 'completed';
 		$this->date_completed = time();
+
+		elgg_trigger_event('close', 'object', $this);
 	}
 
 	/**
@@ -91,6 +127,16 @@ class Task extends ElggObject {
 	 */
 	public function isCompleted() {
 		return $this->status == 'completed';
+	}
+
+	/**
+	 * Remove completion date and set status to 'reopened'.
+	 */
+	public function reopen() {
+	    $this->date_completed = null;
+		$this->status = 'reopened';
+
+		elgg_trigger_event('reopen', 'object', $this);
 	}
 
 }

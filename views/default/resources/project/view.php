@@ -24,6 +24,28 @@ if ($entity->canEdit()) {
 	]);
 }
 
+$user = elgg_get_logged_in_user_entity();
+
+$subscriptions = new Notification\Subscriptions();
+
+if ($subscriptions->isSubscribed($user, $entity)) {
+	elgg_register_menu_item('title', [
+		'name' => 'unsubscribe',
+		'text' => elgg_echo('projects:project:unsubscribe'),
+		'href' => "action/project/unsubscribe?guid={$guid}",
+		'link_class' => 'elgg-button elgg-button-action',
+		'is_action' => true,
+	]);
+} else {
+	elgg_register_menu_item('title', [
+		'name' => 'subscribe',
+		'text' => elgg_echo('projects:project:subscribe'),
+		'href' => "action/project/subscribe?guid={$guid}",
+		'link_class' => 'elgg-button elgg-button-action',
+		'is_action' => true,
+	]);
+}
+
 $entity_view = elgg_view_entity($entity, [
 	'full_view' => true,
 ]);

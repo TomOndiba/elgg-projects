@@ -28,7 +28,43 @@ return [
 	'projects:date:format' => 'Y-m-d',
 	'task:widget:description' => 'Display tasks assigned to you.',
 	'projects:widget:task:numbertodisplay' => 'Amount of tasks',
-	'projects:' => '',
-	'projects:' => '',
-	'projects:' => '',
+
+	'projects:project:subscribe' => 'Subscribe',
+	'projects:project:unsubscribe' => 'Unsubscribe',
+	'projects:project:subscribed' => 'You have been subscribed to project notifications',
+	'projects:project:unsubscribed' => 'You have been unsubscribed from project notification',
+
+	/**
+	 * Translation keys generated automatically by the core
+	 * notifications system.
+	 *
+	 * See:
+	 *  - NotificationsService::getNotificationSubject()
+	 *  - NotificationsService::getNotificationBody()
+	 */
+
+	 // Task was created.
+	'notification:create:object:task:subject' => '%s created the task %s',
+	'notification:create:object:task:body' => '
+%1$s has created the task %3$s in the project %4$s
+
+%6$s',
+	// Task was closed.
+	'notification:close:object:task:subject' => '%s closed the task %s',
+	'notification:close:object:task:body' => '
+%1$s has closed the task %3$s in the project %4$s
+
+%6$s',
+	// Task was reopened.
+	'notification:reopen:object:task:subject' => '%s reopened the task %s',
+	'notification:reopen:object:task:body' => '
+%1$s has reopened the task %3$s in the project %4$s
+
+%6$s',
+	// Task was assigned.
+	'notification:assign:object:task:subject' => '%s assigned the task %s to you',
+	'notification:assign:object:task:body' => '
+%s has assigned to you the task %s in the project %s
+
+%s',
 ];
