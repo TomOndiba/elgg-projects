@@ -15,6 +15,8 @@ function projects_init() {
 	elgg_register_action('project/save', __DIR__ . '/actions/project/save.php');
 	elgg_register_action('project/subscribe', __DIR__ . '/actions/project/subscribe.php');
 	elgg_register_action('project/unsubscribe', __DIR__ . '/actions/project/unsubscribe.php');
+	elgg_register_action('project/close', __DIR__ . '/actions/project/close.php');
+	elgg_register_action('project/reopen', __DIR__ . '/actions/project/reopen.php');
 
 	elgg_register_action('task/save', __DIR__ . '/actions/task/save.php');
 	elgg_register_action('task/complete', __DIR__ . '/actions/task/complete.php');

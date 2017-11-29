@@ -41,6 +41,37 @@ class Project extends ElggObject {
 	}
 
 	/**
+	 * Mark this project as completed.
+	 *
+	 * Will change the status of the project and save the completion date.
+	 */
+	public function markClosed() {
+		$this->status = 'closed';
+		$this->date_completed = time();
+
+		elgg_trigger_event('close', 'object', $this);
+	}
+
+	/**
+	 * Is this project closed?
+	 *
+	 * @return boolean
+	 */
+	public function isClosed() {
+		return $this->status == 'closed';
+	}
+
+	/**
+	 * Remove completion date and set status to 'reopened'.
+	 */
+	public function reopen() {
+	    $this->date_closed = null;
+		$this->status = 'reopened';
+
+		elgg_trigger_event('reopen', 'object', $this);
+	}
+
+	/**
 	 * Get completion percentage.
 	 *
 	 * @return int

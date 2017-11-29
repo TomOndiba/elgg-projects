@@ -11,6 +11,9 @@ return [
 	'project:owner_block:group' => 'Group projects',
 	'projects:project:none' => 'No projects',
 	'projects:project' => 'Projects',
+	'projects:project:action:closed' => 'Project closed',
+	'projects:project:action:reopened' => 'Project reopened',
+	'projects:project:not_found' => 'Project was not found',
 	'project:add' => 'Add new project',
 	'projects:task' => 'Task',
 	'projects:tasks' => 'Tasks',
@@ -28,6 +31,7 @@ return [
 	'projects:date:format' => 'Y-m-d',
 	'task:widget:description' => 'Display tasks assigned to you.',
 	'projects:widget:task:numbertodisplay' => 'Amount of tasks',
+	'reopen' => 'Reopen',
 
 	'projects:project:subscribe' => 'Subscribe',
 	'projects:project:unsubscribe' => 'Unsubscribe',

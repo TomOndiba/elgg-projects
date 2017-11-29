@@ -12,6 +12,26 @@ $user = elgg_get_logged_in_user_entity();
 
 if ($user) {
 	if ($entity->canEdit()) {
+		if ($entity->isClosed()) {
+			elgg_register_menu_item('title', [
+				'name' => 'project_reopen',
+				'text' => elgg_echo('reopen'),
+				'href' => "action/project/reopen?guid={$guid}",
+				'link_class' => 'elgg-button elgg-button-action',
+				'is_action' => true,
+				'confirm' => true,
+			]);
+		} else {
+			elgg_register_menu_item('title', [
+				'name' => 'project_close',
+				'text' => elgg_echo('close'),
+				'href' => "action/project/close?guid={$guid}",
+				'link_class' => 'elgg-button elgg-button-action',
+				'is_action' => true,
+				'confirm' => true,
+			]);
+		}
+
 		elgg_register_menu_item('title', [
 			'name' => 'project_edit',
 			'text' => elgg_echo('edit'),
