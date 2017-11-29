@@ -21,6 +21,8 @@ return [
 	'projects:tasks:none' => 'No tasks',
 	'projects:task:assignees' => 'Assignees',
 	'projects:group:enable' => 'Enable group projects',
+	'projects:details' => 'Details',
+	'projects:calendar' => 'Calendar',
 	'projects:task:title:owner' => 'Tasks created by %s',
 	'projects:task:title:assigned' => 'Tasks assigned to %s',
 	'projects:task:mark_complete' => 'Mark complete',

@@ -72,6 +72,7 @@ function project_page_handler($page) {
 			echo elgg_view_resource("project/list", $vars);
 			break;
 		case 'view':
+			$vars['tab'] = get_input('tab', 'details');
 			$vars['guid'] = $identifier;
 			echo elgg_view_resource("project/view", $vars);
 			break;

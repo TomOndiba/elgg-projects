@@ -5,6 +5,7 @@ namespace Elgg\Projects;
 $title = elgg_echo('projects:project');
 
 $guid = elgg_extract('guid', $vars);
+$tab = elgg_extract('tab', $vars);
 
 $entity = get_entity($guid);
 
@@ -68,32 +69,19 @@ if ($user) {
 	}
 }
 
-$entity_view = elgg_view_entity($entity, [
-	'full_view' => true,
+$tabs = elgg_view('project/tabs', [
+	'tab' => $tab,
+	'entity' => $entity,
 ]);
 
-$dates = elgg_view('object/project/dates', ['entity' => $entity]);
+$vars['entity'] = $entity;
 
-$percentage = $entity->getCompletionPercentage();
-$completion = <<<HTML
-	<div class="elgg-progressbar mvl" style="border: 1px solid grey">
-		<span style="background: green; display: block; width: {$percentage}%">{$percentage}%</span>
-	</div>
-HTML;
-
-$tasks = elgg_list_entities([
-	'type' => 'object',
-	'subtype' => Task::SUBTYPE,
-	'container_guid' => $entity->guid,
-	'no_results' => elgg_echo('projects:tasks:none'),
-]);
-
-$comments = elgg_view_comments($entity);
+$content = elgg_view("project/tabs/$tab", $vars);
 
 $body = elgg_view_layout('content', [
 	'title' => $entity->title,
-	'filter' => '',
-	'content' => $entity_view . $dates . $completion . $tasks . $comments,
+	'filter' => $tabs,
+	'content' => $content,
 ]);
 
 echo elgg_view_page($title, $body);
