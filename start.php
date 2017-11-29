@@ -44,6 +44,10 @@ function projects_init() {
 	add_group_tool_option('projects', elgg_echo('projects:group:enable'));
 
 	elgg_register_widget_type('task', elgg_echo('projects:tasks'), elgg_echo('task:widget:description'));
+
+	// Registers the view project/calendar.php to be
+	// called with the URL ajax/view/project/calendar.
+	elgg_register_ajax_view('project/calendar');
 }
 
 /**
