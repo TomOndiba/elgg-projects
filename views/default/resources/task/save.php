@@ -30,8 +30,12 @@ if ($entity instanceof Task) {
 
 	$form_vars['container_guid'] = $guid;
 
+	elgg_set_page_owner_guid($guid);
+
 	$title = elgg_echo("projects:task:add");
 }
+
+elgg_set_page_owner_guid($container->getContainerGuid());
 
 elgg_push_breadcrumb($container->getDisplayName(), $container->getURL());
 

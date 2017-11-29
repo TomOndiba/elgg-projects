@@ -17,10 +17,16 @@ if ($entity instanceof Project) {
 		$form_vars[$name] = $entity->$name;
 	}
 
+	$container = $entity->getContainerEntity();
+
 	$form_vars['container_guid'] = $entity->container_guid;
 } else {
+	$container = $entity;
+
 	$form_vars['container_guid'] = $guid;
 }
+
+elgg_set_page_owner_guid($container->guid);
 
 $form = elgg_view_form('project/save', $form_vars, $form_vars);
 
