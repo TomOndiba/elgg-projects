@@ -8,42 +8,44 @@ $guid = elgg_extract('guid', $vars);
 
 $entity = get_entity($guid);
 
-if ($entity->canEdit()) {
-	elgg_register_menu_item('title', [
-		'name' => 'project_edit',
-		'text' => elgg_echo('edit'),
-		'href' => "project/edit/$guid",
-		'link_class' => 'elgg-button elgg-button-action',
-	]);
-
-	elgg_register_menu_item('title', [
-		'name' => 'task_add',
-		'text' => elgg_echo('projects:task:add'),
-		'href' => "task/add/$guid",
-		'link_class' => 'elgg-button elgg-button-action',
-	]);
-}
-
 $user = elgg_get_logged_in_user_entity();
 
-$subscriptions = new Notification\Subscriptions();
+if ($user) {
+	if ($entity->canEdit()) {
+		elgg_register_menu_item('title', [
+			'name' => 'project_edit',
+			'text' => elgg_echo('edit'),
+			'href' => "project/edit/$guid",
+			'link_class' => 'elgg-button elgg-button-action',
+		]);
 
-if ($subscriptions->isSubscribed($user, $entity)) {
-	elgg_register_menu_item('title', [
-		'name' => 'unsubscribe',
-		'text' => elgg_echo('projects:project:unsubscribe'),
-		'href' => "action/project/unsubscribe?guid={$guid}",
-		'link_class' => 'elgg-button elgg-button-action',
-		'is_action' => true,
-	]);
-} else {
-	elgg_register_menu_item('title', [
-		'name' => 'subscribe',
-		'text' => elgg_echo('projects:project:subscribe'),
-		'href' => "action/project/subscribe?guid={$guid}",
-		'link_class' => 'elgg-button elgg-button-action',
-		'is_action' => true,
-	]);
+		elgg_register_menu_item('title', [
+			'name' => 'task_add',
+			'text' => elgg_echo('projects:task:add'),
+			'href' => "task/add/$guid",
+			'link_class' => 'elgg-button elgg-button-action',
+		]);
+	}
+
+	$subscriptions = new Notification\Subscriptions();
+
+	if ($subscriptions->isSubscribed($user, $entity)) {
+		elgg_register_menu_item('title', [
+			'name' => 'unsubscribe',
+			'text' => elgg_echo('projects:project:unsubscribe'),
+			'href' => "action/project/unsubscribe?guid={$guid}",
+			'link_class' => 'elgg-button elgg-button-action',
+			'is_action' => true,
+		]);
+	} else {
+		elgg_register_menu_item('title', [
+			'name' => 'subscribe',
+			'text' => elgg_echo('projects:project:subscribe'),
+			'href' => "action/project/subscribe?guid={$guid}",
+			'link_class' => 'elgg-button elgg-button-action',
+			'is_action' => true,
+		]);
+	}
 }
 
 $entity_view = elgg_view_entity($entity, [
