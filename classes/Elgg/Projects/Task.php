@@ -60,7 +60,7 @@ class Task extends ElggObject {
 
 		// If no users are selected, the value of the tokeninput field
 		// will be an aray: [0 => ''].
-		if (empty(current($user_guids))) {
+		if (empty($user_guids[0])) {
 			return;
 		}
 
