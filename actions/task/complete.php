@@ -13,7 +13,9 @@ if (!$task instanceof Task) {
 	//forward(get_input('forward', REFERER));
 }
 
-if (!$task->canEdit()) {
+$user = elgg_get_logged_in_user_entity();
+
+if (!$task->canClose($user)) {
 	register_error(elgg_echo('actionunauthorized'));
 	forward(REFERER);
 }

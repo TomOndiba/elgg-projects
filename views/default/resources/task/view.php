@@ -9,7 +9,9 @@ $container = $entity->getContainerEntity();
 
 elgg_push_breadcrumb($container->getDisplayName(), $container->getURL());
 
-if (!$entity->isCompleted()) {
+$user = elgg_get_logged_in_user_entity();
+
+if ($user && $entity->canClose($user)) {
 	elgg_register_menu_item('title', [
 		'name' => 'task_compete',
 		'text' => elgg_echo('projects:task:mark_complete'),

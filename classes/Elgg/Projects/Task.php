@@ -139,4 +139,31 @@ class Task extends ElggObject {
 		elgg_trigger_event('reopen', 'object', $this);
 	}
 
+	/**
+	 * Can user mark this task as completed?
+	 *
+	 * @param ElggUser $user
+	 */
+	public function canClose(\ElggUser $user) {
+		// Task cannot be closed if it already is closed.
+		if ($this->isCompleted()) {
+			return false;
+		}
+
+		// All people who can edit the task can also close it.
+		if ($this->canEdit()) {
+			return true;
+		}
+
+		// All assignees are allowed to close their own tasks.
+		foreach ($this->getAssignees() as $assignee) {
+			if ($assignee->guid == $user->guid) {
+				return true;
+			}
+		}
+
+		return false;
+
+	}
+
 }
