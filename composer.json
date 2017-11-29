@@ -1,0 +1,10 @@
+{
+	"name": "juho-jaakkola/elgg-projects",
+	"description": "Manage, assign and track tasks within projects.",
+	"type": "elgg-plugin",
+	"keywords": ["elgg", "plugin"],
+	"license": "GPL-2.0",
+	"require": {
+		"composer/installers": "^1.0.8"
+	}
+}
