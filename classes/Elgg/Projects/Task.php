@@ -115,7 +115,7 @@ class Task extends ElggObject {
 	 */
 	public function markCompleted() {
 		$this->status = 'completed';
-		$this->date_completed = time();
+		$this->date_closed = time();
 
 		elgg_trigger_event('close', 'object', $this);
 	}
@@ -133,7 +133,7 @@ class Task extends ElggObject {
 	 * Remove completion date and set status to 'reopened'.
 	 */
 	public function reopen() {
-	    $this->date_completed = null;
+	    $this->date_closed = null;
 		$this->status = 'reopened';
 
 		elgg_trigger_event('reopen', 'object', $this);

@@ -47,7 +47,7 @@ class Project extends ElggObject {
 	 */
 	public function markClosed() {
 		$this->status = 'closed';
-		$this->date_completed = time();
+		$this->date_closed = time();
 
 		elgg_trigger_event('close', 'object', $this);
 	}

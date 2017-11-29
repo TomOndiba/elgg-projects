@@ -27,7 +27,7 @@ return [
 	'projects:task:message:reopened' => 'The task was reopened',
 	'projects:label:date_start' => 'Start date: %s',
 	'projects:label:date_end' => 'End date: %s',
-	'projects:label:date_completed' => 'Completion date: %s',
+	'projects:label:date_closed' => 'Completion date: %s',
 	'projects:date:format' => 'Y-m-d',
 	'task:widget:description' => 'Display tasks assigned to you.',
 	'projects:widget:task:numbertodisplay' => 'Amount of tasks',

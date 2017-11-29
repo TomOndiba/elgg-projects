@@ -5,7 +5,7 @@ $entity = $vars['entity'];
 $dates = [
 	'date_start',
 	'date_end',
-	'date_completed',
+	'date_closed',
 ];
 
 $items = '';
