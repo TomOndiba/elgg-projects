@@ -1,6 +1,6 @@
 <?php
 
-$title = elgg_echo('projects:project');
+$title = elgg_echo('projects:projects');
 
 $container = elgg_extract('container', $vars);
 
