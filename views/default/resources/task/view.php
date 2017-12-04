@@ -1,8 +1,13 @@
 <?php
 
-$title = elgg_echo('projects:task');
+namespace Elgg\Projects;
 
 $guid = elgg_extract('guid', $vars);
+
+elgg_entity_gatekeeper($guid, 'object', Task::SUBTYPE);
+elgg_group_gatekeeper();
+
+$title = elgg_echo('projects:task');
 
 $entity = get_entity($guid);
 $container = $entity->getContainerEntity();

@@ -2,10 +2,13 @@
 
 namespace Elgg\Projects;
 
-$title = elgg_echo('projects:project');
-
 $guid = elgg_extract('guid', $vars);
 $tab = elgg_extract('tab', $vars);
+
+elgg_entity_gatekeeper($guid, 'object', Project::SUBTYPE);
+elgg_group_gatekeeper();
+
+$title = elgg_echo('projects:project');
 
 $entity = get_entity($guid);
 
