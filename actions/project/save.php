@@ -29,4 +29,4 @@ foreach ($fields as $name => $type) {
 $project->save();
 
 
-return elgg_ok_response('', elgg_echo('saved'), $project->getURL());
+return elgg_ok_response('', elgg_echo('projects:project:saved'), $project->getURL());

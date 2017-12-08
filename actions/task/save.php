@@ -32,4 +32,4 @@ $task->save();
 
 $assignees = $task->setAssignees(get_input('assignees'));
 
-return elgg_ok_response('', elgg_echo('saved'), $task->getURL());
+return elgg_ok_response('', elgg_echo('projects:task:saved'), $task->getURL());
