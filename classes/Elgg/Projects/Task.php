@@ -64,9 +64,16 @@ class Task extends ElggObject {
 			return;
 		}
 
+		$logged_in_guid = elgg_get_logged_in_user_guid();
+
 		$from = elgg_get_logged_in_user_entity();
 		foreach ($user_guids as $user_guid) {
 			$this->addRelationship($user_guid, self::ASSIGNED_TO);
+
+			if ($user_guid == $logged_in_guid) {
+				// Do not notify if assigning to self.
+				continue;
+			}
 
 			$user = get_user($user_guid);
 
