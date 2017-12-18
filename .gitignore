@@ -1,3 +1,7 @@
 .*
 *.kdev*
 !.gitignore
+
+composer.lock
+vendor/
+
