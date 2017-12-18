@@ -65,7 +65,7 @@ class Project extends ElggObject {
 	 * Remove completion date and set status to 'reopened'.
 	 */
 	public function reopen() {
-	    $this->date_closed = null;
+		$this->date_closed = null;
 		$this->status = 'reopened';
 
 		elgg_trigger_event('reopen', 'object', $this);
@@ -106,6 +106,53 @@ class Project extends ElggObject {
 		]);
 
 		return round($finished_count / $total_count * 100);
+	}
+
+
+	/**
+	 * Return all task authors in the project.
+	 *
+	 * @return ElggUser[] $authors All the task authors in the project.
+	 */
+	public function getAuthors() {
+		$tasks = elgg_get_entities([
+			'type' => 'object',
+			'subtype' => Task::SUBTYPE,
+			'container_guid' => $this->guid,
+			'limit' => false,
+		]);
+
+		$authors = [];
+		foreach ($tasks as $task) {
+			$authors[$task->getOwnerGUID()] = $task->getOwnerEntity();
+		}
+
+		return $authors;
+	}
+
+	/**
+	 * Return all task assignees in the project.
+	 *
+	 * @return ElggUser[] $assignees All the task assignees in the project.
+	 */
+	public function getAssignees() {
+		$tasks = elgg_get_entities([
+			'type' => 'object',
+			'subtype' => Task::SUBTYPE,
+			'container_guid' => $this->guid,
+			'limit' => false,
+		]);
+
+		$assignees = [];
+		foreach ($tasks as $task) {
+			$task_assignees = $task->getAssignees();
+
+			foreach ($task_assignees as $assignee) {
+				$assignees[$task->getOwnerGUID()] = $task->getOwnerEntity();
+			}
+		}
+
+		return $assignees;
 	}
 
 }
