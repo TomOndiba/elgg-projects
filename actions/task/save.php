@@ -22,7 +22,7 @@ foreach ($fields as $name => $type) {
 	$task->$name = $value;
 }
 
-if ($task->isCompleted()) {
+if ($task->isClosed()) {
 	$task->reopen();
 
 	system_message(elgg_echo('projects:task:message:reopened'));

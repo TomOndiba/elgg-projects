@@ -116,24 +116,24 @@ class Task extends ElggObject {
 	}
 
 	/**
-	 * Mark this task as completed.
+	 * Mark this task as closed.
 	 *
 	 * Will change the status of the task and save the completion date.
 	 */
-	public function markCompleted() {
-		$this->status = 'completed';
+	public function markClosed() {
+		$this->status = 'closed';
 		$this->date_closed = time();
 
 		elgg_trigger_event('close', 'object', $this);
 	}
 
 	/**
-	 * Is this task completed?
+	 * Is this task closed?
 	 *
 	 * @return boolean
 	 */
-	public function isCompleted() {
-		return $this->status == 'completed';
+	public function isClosed() {
+		return $this->status == 'closed';
 	}
 
 	/**
@@ -147,13 +147,13 @@ class Task extends ElggObject {
 	}
 
 	/**
-	 * Can user mark this task as completed?
+	 * Can user mark this task as closed?
 	 *
 	 * @param ElggUser $user
 	 */
 	public function canClose(\ElggUser $user) {
 		// Task cannot be closed if it already is closed.
-		if ($this->isCompleted()) {
+		if ($this->isClosed()) {
 			return false;
 		}
 

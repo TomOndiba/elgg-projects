@@ -20,6 +20,6 @@ if (!$task->canClose($user)) {
 	forward(REFERER);
 }
 
-$task->markCompleted();
+$task->markClosed();
 
-return elgg_ok_response('', elgg_echo('projects:task:action:completed'), $task->getURL());
+return elgg_ok_response('', elgg_echo('projects:task:action:closed'), $task->getURL());

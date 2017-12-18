@@ -41,7 +41,7 @@ class Project extends ElggObject {
 	}
 
 	/**
-	 * Mark this project as completed.
+	 * Mark this project as closed.
 	 *
 	 * Will change the status of the project and save the completion date.
 	 */
@@ -99,7 +99,7 @@ class Project extends ElggObject {
 			'metadata_name_value_pairs' => [
 				[
 					'name' => 'status',
-					'value' => 'completed',
+					'value' => 'closed',
 					'operator' => '!=',
 				]
 			]
@@ -107,4 +107,5 @@ class Project extends ElggObject {
 
 		return round($finished_count / $total_count * 100);
 	}
+
 }

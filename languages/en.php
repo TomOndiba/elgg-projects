@@ -29,7 +29,7 @@ return [
 	'projects:task:title:owner' => 'Tasks created by %s',
 	'projects:task:title:assigned' => 'Tasks assigned to %s',
 	'projects:task:mark_complete' => 'Mark complete',
-	'projects:task:action:completed' => 'Task marked as completed',
+	'projects:task:action:closed' => 'Task marked as closed',
 	'projects:task:message:reopened' => 'The task was reopened',
 	'projects:label:date_start' => 'Start date: %s',
 	'projects:label:date_end' => 'End date: %s',
