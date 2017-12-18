@@ -18,6 +18,8 @@ function projects_init() {
 		'href' => 'project/all',
 	]);
 
+	elgg_extend_view('css/elgg', 'project/project.css');
+
 	elgg_register_action('project/save', __DIR__ . '/actions/project/save.php');
 	elgg_register_action('project/subscribe', __DIR__ . '/actions/project/subscribe.php');
 	elgg_register_action('project/unsubscribe', __DIR__ . '/actions/project/unsubscribe.php');
