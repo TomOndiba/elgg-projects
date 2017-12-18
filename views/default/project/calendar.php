@@ -17,7 +17,8 @@ foreach ($entities as $task) {
 	$result[] = [
 		'title' => $task->title,
 		'start' => gmdate('c', $task->date_start),
-		'end' => gmdate('c', $task->date_end),
+		// Hack to make the task span across both dates in the calendar.
+		'end' => gmdate('c', $task->date_end + 86400),
 		'allDay' => true,
 		'url' => $task->getURL(),
 	];
