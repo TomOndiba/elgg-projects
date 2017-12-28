@@ -5,11 +5,36 @@
 
 $container_guid = get_input('container_guid');
 
-$entities = elgg_get_entities([
+$date_start = get_input('date_start');
+$date_end = get_input('date_end');
+
+if (!$date_start) {
+	$date = new DateTime('first day of this month');
+	$date_start = $date->format('U');
+}
+
+if (!$date_end) {
+	$date = new DateTime('last day of this month');
+	$date_end = $date->format('U');
+}
+
+$entities = elgg_get_entities_from_metadata([
 	'type' => 'object',
 	'subtype' => Elgg\Projects\Task::SUBTYPE,
 	'container_guid' => $container_guid,
 	'limit' => false,
+	'metadata_name_value_pairs' => [
+		[
+			'name' => 'date_start',
+			'value' => $date_start,
+			'operand' => '>=',
+		],
+		[
+			'name' => 'date_end',
+			'value' => $date_end,
+			'operand' => '<=',
+		],
+	]
 ]);
 
 $result = [];
