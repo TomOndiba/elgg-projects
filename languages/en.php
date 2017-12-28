@@ -77,4 +77,12 @@ return [
 %s has assigned to you the task %s in the project %s
 
 %s',
+
+	'projects:reminder:title' => 'Reminder - %s',
+	'projects:reminder:body' => 'This is a reminder of the task "%s" that has been assigned to you.
+
+Task deadline: %s
+
+%s
+',
 ];

@@ -29,6 +29,7 @@ function projects_init() {
 
 	elgg_register_plugin_hook_handler('register', 'menu:owner_block', '\Elgg\Projects\OwnerBlockMenu::register');
 	elgg_register_plugin_hook_handler('permissions_check', 'object', '\Elgg\Projects\WritePermissionCheck::process');
+	elgg_register_plugin_hook_handler('cron', 'daily', '\Elgg\Projects\Cron::process');
 
 	elgg_register_notification_event('object', Project::SUBTYPE, [
 		'create',
