@@ -14,6 +14,11 @@ $entities = elgg_get_entities([
 
 $result = [];
 foreach ($entities as $task) {
+	// Skip tasks that are missing the dates.
+	if (empty($task->date_start) && empty($task->time_end)) {
+		continue;
+	}
+
 	$result[] = [
 		'title' => $task->title,
 		'start' => gmdate('c', $task->date_start),
