@@ -2,8 +2,6 @@
 
 namespace Elgg\Projects;
 
-use Elgg\Projects\Notification\Subscriptions;
-
 class Cron {
 
 	/**
@@ -63,10 +61,6 @@ class Cron {
 		$from = elgg_get_site_entity()->guid;
 
 		foreach ($task->getAssignees() as $user) {
-			if (!Subscriptions::isSubscribed($user, $task->getContainerEntity())) {
-				continue;
-			}
-
 			$date_format = elgg_echo('projects:date:format', [], $user->language);
 
 			$subject = elgg_echo('projects:reminder:title', [$task->title], $user->language);
