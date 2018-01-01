@@ -13,7 +13,7 @@ function projects_init() {
 	elgg_register_page_handler('project', 'project_page_handler');
 
 	elgg_register_menu_item('site', [
-		'name' => 'project',
+		'name' => 'projects',
 		'text' => elgg_echo('projects:projects'),
 		'href' => 'project/all',
 	]);
