@@ -8,6 +8,7 @@ return [
 	'projects:date_end' => 'Ending time',
 	'projects:access' => 'Read access',
 	'projects:write_access' => 'Write access',
+	'project:owner_block' => 'Projects',
 	'project:owner_block:group' => 'Group projects',
 	'projects:project:none' => 'No projects',
 	'projects:project' => 'Project',
