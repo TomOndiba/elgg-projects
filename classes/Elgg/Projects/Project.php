@@ -72,25 +72,27 @@ class Project extends ElggObject {
 	}
 
 	/**
-	 * Get completion percentage.
+	 * Get total amount of tasks.
 	 *
 	 * @return int
 	 */
-	public function getCompletionPercentage() {
-		$total_count = elgg_get_entities([
+	public function countTotal() {
+		return elgg_get_entities([
 			'type' => 'object',
 			'subtype' => Task::SUBTYPE,
 			'container_guid' => $this->guid,
 			'limit' => false,
 			'count' => true,
 		]);
+	}
 
-
-		if ($total_count == 0) {
-			return 0;
-		}
-
-		$finished_count = elgg_get_entities_from_metadata([
+	/**
+	 * Get total amount of closed tasks.
+	 *
+	 * @return int
+	 */
+	public function countClosed() {
+		return elgg_get_entities_from_metadata([
 			'type' => 'object',
 			'subtype' => Task::SUBTYPE,
 			'container_guid' => $this->guid,
@@ -104,6 +106,21 @@ class Project extends ElggObject {
 				]
 			]
 		]);
+	}
+
+	/**
+	 * Get completion percentage.
+	 *
+	 * @return int
+	 */
+	public function getCompletionPercentage() {
+		$total_count = $this->countTotal();
+
+		if ($total_count == 0) {
+			return 0;
+		}
+
+		$finished_count = $this->countClosed();
 
 		return round($finished_count / $total_count * 100);
 	}
