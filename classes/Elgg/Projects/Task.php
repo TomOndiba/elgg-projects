@@ -18,6 +18,16 @@ class Task extends ElggObject {
 	}
 
 	/**
+	 * Make sure new tasks have the 'open' status by default.
+	 */
+	public function save() {
+		if (empty($this->guid)) {
+			$this->status = 'open';
+		}
+		parent::save();
+	}
+
+	/**
 	 *
 	 */
 	public static function getProperties(){
