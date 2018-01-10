@@ -30,6 +30,7 @@ function projects_init() {
 	elgg_register_action('task/complete', __DIR__ . '/actions/task/complete.php');
 
 	elgg_register_plugin_hook_handler('register', 'menu:owner_block', '\Elgg\Projects\OwnerBlockMenu::register');
+	elgg_register_plugin_hook_handler('register', 'menu:entity', '\Elgg\Projects\TaskEntityMenu::register');
 	elgg_register_plugin_hook_handler('permissions_check', 'object', '\Elgg\Projects\WritePermissionCheck::process');
 	elgg_register_plugin_hook_handler('cron', 'daily', '\Elgg\Projects\Cron::process');
 
@@ -51,6 +52,8 @@ function projects_init() {
 	// Registers the view project/calendar.php to be
 	// called with the URL ajax/view/project/calendar.
 	elgg_register_ajax_view('project/calendar');
+
+	elgg_extend_view('elgg.css', 'projects.css');
 }
 
 /**

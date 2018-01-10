@@ -16,6 +16,8 @@ return [
 	'projects:project:saved' => 'Project saved',
 	'projects:project:action:closed' => 'Project closed',
 	'projects:project:action:reopened' => 'Project reopened',
+	'projects:status:open' => 'Open',
+	'projects:status:closed' => 'Closed',
 	'projects:project:not_found' => 'Project was not found',
 	'project:add' => 'Add new project',
 	'projects:select:status' => 'Any status',
