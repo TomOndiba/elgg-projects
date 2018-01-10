@@ -16,6 +16,16 @@ class Project extends ElggObject {
 	}
 
 	/**
+	 * Make sure new projects have the 'open' status by default.
+	 */
+	public function save() {
+		if (empty($this->guid)) {
+			$this->status = 'open';
+		}
+		parent::save();
+	}
+
+	/**
 	 *
 	 */
 	public static function getProperties(){
