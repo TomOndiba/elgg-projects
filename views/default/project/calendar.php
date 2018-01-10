@@ -26,6 +26,7 @@ foreach ($entities as $task) {
 		'end' => gmdate('c', $task->date_end + 86400),
 		'allDay' => true,
 		'url' => $task->getURL(),
+		'color' => $task->isClosed() ? 'green' : 'red',
 	];
 }
 
