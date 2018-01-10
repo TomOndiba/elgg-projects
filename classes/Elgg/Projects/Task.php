@@ -147,11 +147,11 @@ class Task extends ElggObject {
 	}
 
 	/**
-	 * Remove completion date and set status to 'reopened'.
+	 * Remove completion date and set status to 'open'.
 	 */
 	public function reopen() {
 	    $this->date_closed = null;
-		$this->status = 'reopened';
+		$this->status = 'open';
 
 		elgg_trigger_event('reopen', 'object', $this);
 	}

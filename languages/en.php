@@ -37,7 +37,6 @@ return [
 	'projects:task:message:reopened' => 'The task was reopened',
 	'projects:task:open' => 'Open',
 	'projects:task:closed' => 'Closed',
-	'projects:task:reopened' => 'Reopened',
 	'projects:label:date_start' => 'Start date: %s',
 	'projects:label:date_end' => 'End date: %s',
 	'projects:label:date_closed' => 'Completion date: %s',

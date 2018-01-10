@@ -25,7 +25,6 @@ $vars['status_options'] = [
 	0 => elgg_echo('projects:select:status'),
 	'open' => elgg_echo('projects:task:open'),
 	'closed' => elgg_echo('projects:task:closed'),
-	'reopened' => elgg_echo('projects:task:reopened'),
 ];
 
 $filter_form = elgg_view_form(
