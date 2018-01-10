@@ -10,6 +10,7 @@ return [
 	'projects:write_access' => 'Write access',
 	'project:owner_block' => 'Projects',
 	'project:owner_block:group' => 'Group projects',
+	'project:tasks:count' => '%s/%s completed',
 	'projects:project:none' => 'No projects',
 	'projects:project' => 'Project',
 	'projects:projects' => 'Projects',

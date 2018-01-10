@@ -16,6 +16,25 @@ if ($full) {
 		'icon' => '',
 	]);
 } else {
+	if ($entity->isClosed()) {
+		$status_icon = elgg_view_icon('times-times-o', [
+			'style' => 'color: red',
+		]);
+	} else {
+		$status_icon = elgg_view_icon('times-circle-o', [
+			'style' => 'color: green',
+		]);
+	}
+
+	$task_count = elgg_format_element(
+		'span',
+		['style' => 'margin-left: 5px'],
+		elgg_echo('project:tasks:count', [
+			$entity->countClosed(),
+			$entity->countTotal(),
+		])
+	);
+
 	$params = array(
 		'entity' => $entity,
 		'title' => elgg_view('output/url', [
@@ -28,8 +47,8 @@ if ($full) {
 			'sort_by' => 'priority',
 			'class' => 'elgg-menu-hz',
 		]),
+		'content' => $task_count,
 	);
 	$params = $params + $vars;
 	echo elgg_view('object/elements/summary', $params);
 }
-
