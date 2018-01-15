@@ -74,10 +74,12 @@ function project_page_handler($page) {
 
 	switch ($page_type) {
 		case 'owner':
+			$vars['tab'] = elgg_extract(2, $page, 'open');
 			$vars['container'] = get_user_by_username($identifier);
 			echo elgg_view_resource("project/list", $vars);
 			break;
 		case 'group':
+			$vars['tab'] = elgg_extract(2, $page, 'open');
 			$vars['container'] = get_entity($identifier);
 			echo elgg_view_resource("project/list", $vars);
 			break;
@@ -92,6 +94,7 @@ function project_page_handler($page) {
 			echo elgg_view_resource("project/save", $vars);
 			break;
 		default:
+			$vars['tab'] = elgg_extract(1, $page, 'open');
 			echo elgg_view_resource("project/list", $vars);
 	}
 }

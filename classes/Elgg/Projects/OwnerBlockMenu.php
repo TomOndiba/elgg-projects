@@ -14,11 +14,11 @@ class OwnerBlockMenu {
 		$entity = $params['entity'];
 
 		if ($entity instanceof ElggUser) {
-			$url = "project/owner/{$entity->username}";
+			$url = "project/owner/{$entity->username}/open";
 			$return[] = new ElggMenuItem('project', elgg_echo('project:owner_block'), $url);
 		} else {
 			if ($entity->projects_enable != "no") {
-				$url = "project/group/{$entity->guid}/all";
+				$url = "project/group/{$entity->guid}/open";
 				$return[] = new ElggMenuItem('project', elgg_echo('project:owner_block:group'), $url);
 			}
 		}
