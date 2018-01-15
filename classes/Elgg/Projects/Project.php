@@ -175,7 +175,7 @@ class Project extends ElggObject {
 			$task_assignees = $task->getAssignees();
 
 			foreach ($task_assignees as $assignee) {
-				$assignees[$task->getOwnerGUID()] = $task->getOwnerEntity();
+				$assignees[$assignee->guid] = $assignee;
 			}
 		}
 
