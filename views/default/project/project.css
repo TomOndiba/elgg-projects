@@ -17,4 +17,5 @@
 
 .projects-status-legend.closed {
 	background: green;
+	margin-left: 10px;
 }
