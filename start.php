@@ -20,6 +20,9 @@ function projects_init() {
 
 	elgg_extend_view('css/elgg', 'project/project.css');
 
+	// The simplecache view refers to the 'fullcalendar.css' defined in views.php.
+	elgg_register_css('fullcalendar', elgg_get_simplecache_url('css/fullcalendar'));
+
 	elgg_register_action('project/save', __DIR__ . '/actions/project/save.php');
 	elgg_register_action('project/subscribe', __DIR__ . '/actions/project/subscribe.php');
 	elgg_register_action('project/unsubscribe', __DIR__ . '/actions/project/unsubscribe.php');
