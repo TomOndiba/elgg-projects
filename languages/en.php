@@ -6,6 +6,7 @@ return [
 	'projects:task:edit' => 'Edit task',
 	'projects:date_start' => 'Starting time',
 	'projects:date_end' => 'Ending time',
+	'projects:deadline' => 'Deadline: %s',
 	'projects:access' => 'Read access',
 	'projects:write_access' => 'Write access',
 	'project:owner_block' => 'Projects',

@@ -13,6 +13,9 @@ if ($full) {
 			'href' => $entity->getURL(),
 			'text' => $entity->getDisplayName(),
 		]),
+		'subtitle' => elgg_echo('projects:deadline', [
+			date(elgg_echo('projects:date:format'), $entity->date_end),
+		]),
 		'metadata' => elgg_view_menu('entity', [
 			'entity' => $entity,
 			'handler' => 'task',
