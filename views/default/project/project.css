@@ -1,5 +1,20 @@
 
 .elgg-form-project-task-filter .elgg-field {
-    display: inline-block;
-    margin: 0 10px 0 0;
+	display: inline-block;
+	margin: 0 10px 0 0;
+}
+
+.projects-status-legend {
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	margin-right: 5px;
+}
+
+.projects-status-legend.open {
+	background: red;
+}
+
+.projects-status-legend.closed {
+	background: green;
 }
