@@ -15,6 +15,11 @@ $content = elgg_list_entities_from_relationship([
 	'inverse_relationship' => $widget->owner_guid,
 	'limit' => $widget->num_display,
 	'pagination' => false,
+	'order_by_metadata' => [
+		'name' => 'date_end',
+		'direction' => 'ASC',
+		'as' => 'text',
+	],
 ]);
 
 if (empty($content)) {
