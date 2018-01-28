@@ -30,6 +30,10 @@ if ($entity instanceof Task) {
 
 	$form_vars['container_guid'] = $guid;
 
+	// Use the read and write access id of the project as default access.
+	$form_vars['access_id'] = $container->access_id;
+	$form_vars['write_access_id'] = $container->write_access_id;
+
 	elgg_set_page_owner_guid($guid);
 
 	$title = elgg_echo("projects:task:add");
