@@ -1,5 +1,5 @@
 {
-	"name": "juho-jaakkola/elgg-projects",
+	"name": "sbwtech/elgg-projects",
 	"description": "Manage, assign and track tasks within projects.",
 	"type": "elgg-plugin",
 	"keywords": ["elgg", "plugin"],
