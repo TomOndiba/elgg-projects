@@ -47,7 +47,7 @@ class Project extends ElggObject {
 	 *
 	 */
 	public function getURL() {
-		return "project/view/{$this->guid}";
+		return elgg_normalize_url("project/view/{$this->guid}");
 	}
 
 	/**
